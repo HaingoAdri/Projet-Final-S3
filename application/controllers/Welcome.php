@@ -18,11 +18,8 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{	
-		$data['error'] = "";
-		$this->load->view('Login' , $data);
-		
+	public function index(){	
+		redirect( site_url('user/') );
 	}	
 	//cette page accepte une variable url facultative
 	

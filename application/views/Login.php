@@ -37,11 +37,11 @@
                 <div class="forms">
                     <form action="<?php echo base_url('index.php/user/login'); ?>" method="POST" class="form">
                         <div class="form-floating mb-3">
-                            <input type="text" name="email" value="sarobidy@gmail.com" class="form-control" id="floatingInputUser" placeholder="Your email">
+                            <input type="text" name="email" value="<?php echo $emailLogin; ?>" class="form-control" id="floatingInputUser" placeholder="Your email">
                             <label for="floatingInputUser fs-4"> Username </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" name="password" value="sarobidy" class="form-control" id="floatingInputPass" placeholder="Your password">
+                            <input type="password" name="password" value="<?php echo $passLogin; ?>" class="form-control" id="floatingInputPass" placeholder="Your password">
                             <label for="floatingInputPass"> Password </label>
                         </div>
                         <div class="form-floating mb-3 text-center">
@@ -77,32 +77,37 @@
                     </p>
                 </div>
                 <div class="forms">
-                    <form action="<?php echo site_url('index.php/user/'); ?>" method="POST" class="form">
+                    <form action="<?php echo site_url('user/signup'); ?>" method="POST" class="form">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputName" name="nom" placeholder="Your username">
+                            <input type="text" class="form-control" id="floatingInputName" value="<?= $nom ?>" name="nom" placeholder="Your username">
                             <label for="floatingInputName fs-4">First name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputLastName" name="prenom" placeholder="Your password">
+                            <input type="text" class="form-control" id="floatingInputLastName" value="<?= $prenom ?>" name="prenom" placeholder="Your password">
                             <label for="floatingInputLastName"> Last Name </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputDate" name="email" placeholder="Enter a email">
+                            <input type="text" class="form-control" id="floatingInputDate" value="<?= $email ?>" name="email" placeholder="Enter a email">
                             <label for="floatingInputDate"> Your mail </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingInputPass1" name="pass1" placeholder="Your password">
+                            <input type="password" class="form-control" id="floatingInputPass1" value="<?= $pass1 ?>" name="pass1" placeholder="Your password">
                             <label for="floatingInputPass1"> Enter a password </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingInputPass2" name="pass2" placeholder="Your password">
+                            <input type="password" class="form-control" id="floatingInputPass2" value="<?= $pass2 ?>" name="pass2" placeholder="Your password">
                             <label for="floatingInputPass2"> Verify the password </label>
                         </div>
                         <div class="form-floating mb-3 text-center">
                             <input type="submit" class="btn btn-primary px-4" value="Login">
                         </div>
                     </form>
+                    <div class="error-inscription">
+                        <p class="text-center text-danger">
+                            <?= $error_inscription ?>
+                        </p>
+                    </div>
                 </div>
                 <div class="have-account">
                     <p>
