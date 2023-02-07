@@ -45,7 +45,7 @@ create table objets(
     FOREIGN key (idUsers) REFERENCES utilisateurs(idUsers)
 );
 insert into Objets values
-        (default,'Hyndai Veloster Turbo','32000000','Neufs','1');
+        (default,'Hyundai Veloster Turbo','32000000','Neufs','1');
 insert into objets values 
         (default,'Dodge Ram','100000000','Neufs','1');
 insert into objets values 
@@ -88,6 +88,8 @@ insert into Objets values
         (default,'SamsungNotebook Pen','3500000','Le PC Portable se dote d un Stylet',2);
 insert into Objets values 
         (default, 'Acer Aspire','2000000','Full HD',3);
+
+
 create table fusionObjets(
     idfusionObjets int auto_increment not null PRIMARY KEY,
     idObjet int not null,
@@ -95,14 +97,59 @@ create table fusionObjets(
     FOREIGN key(idObjet) REFERENCES objets(idObjet),
     FOREIGN key(idCategories) REFERENCES Categories(idCategories)
 );
-insert into fusionObjets
-        (default, );
+
+insert into fusionObjets VALUES
+        (default,1,1 );
+insert into fusionObjets VALUES
+        (default,2,1 );
+insert into fusionObjets VALUES
+        (default,3,1 );
+insert into fusionObjets VALUES
+        (default,4,1 );
+insert into fusionObjets VALUES
+        (default,5,1 );
+insert into fusionObjets VALUES
+        (default,6,1 );
+insert into fusionObjets VALUES
+        (default,7,1 );
+insert into fusionObjets VALUES
+        (default,1,2 );
+insert into fusionObjets VALUES
+        (default,2,2 );
+insert into fusionObjets VALUES
+        (default,3,2 );
+insert into fusionObjets VALUES
+        (default,4,2 );
+insert into fusionObjets VALUES
+        (default,5,2 );
+insert into fusionObjets VALUES
+        (default,6,2 );
+insert into fusionObjets VALUES
+        (default,7,2 );
+insert into fusionObjets VALUES
+        (default,8,2 );
+insert into fusionObjets VALUES
+        (default,9,2 );
+insert into fusionObjets VALUES
+        (default,10,2 );
+insert into fusionObjets VALUES
+        (default,1,3 );
+insert into fusionObjets VALUES
+        (default,2,3 );
+insert into fusionObjets VALUES
+        (default,3,3 );
+insert into fusionObjets VALUES
+        (default,4,3 );
+insert into fusionObjets VALUES
+        (default,5,3 );
+
 create table lien_image(
     idImage int auto_increment primary KEY not null,
     idObjet int not null,
     lienImage VARCHAR(250) not null,
     FOREIGN KEY(idObjet) REFERENCES objets(idObjet)
 );
+
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
     idProposer int not null,
@@ -115,3 +162,4 @@ create table Proposition(
     FOREIGN key (idObjet_proposer) REFERENCES objets(idObjet),
     FOREIGN key (idObjet_demander) REFERENCES Objets(idObjet)
 );
+
