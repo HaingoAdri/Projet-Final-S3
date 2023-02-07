@@ -21,7 +21,7 @@ class User extends CI_Controller {
     public function _construct(){
           parent::_construct();      
     } 
-     function login_Page(){
+    function login_Page(){
             $this->load->view('Login');
     }
 
@@ -30,7 +30,25 @@ class User extends CI_Controller {
 			$password = $this->input->post('password');
 			$this->load->model('User_Mod' , 'user');
 			$user = $this->user->connect( $email , $password );
-			echo $user;
+			$this->showPage( $user );
+	}
+
+	function inscription( ){
+		// inona ny atao ato
+		$nom = $this->input->post('nom');
+		$prenom = $this->input->post('prenom');
+		$email = $this->input->post('email');
+		$password = $this->input->post('pass1');
+		$password2 = $this->input->post('pass2');
+	}
+
+	function showPage( $user ){
+			if( $user == NULL ){
+				$data['error'] = 'Please verify the credentials you use';
+				$this->load->view('Login' , $data);
+			}else{
+				echo "OUEEEEE";
+			}
 	}
 
 }

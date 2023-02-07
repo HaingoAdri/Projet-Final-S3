@@ -7,7 +7,7 @@ Create table utilisateurs(
     Nom VARCHAR(250),
     prenom VARCHAR(250),
     email VARCHAR(250),
-    username VARCHAR (250) unique,
+    password VARCHAR (250),
     isAdmin boolean DEFAULT FALSE
 );
 insert into  utilisateurs values

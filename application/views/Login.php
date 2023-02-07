@@ -48,6 +48,11 @@
                             <input type="submit" class="btn btn-primary px-4" value="Login">
                         </div>
                     </form>
+                    <div class="error-message">
+                        <p class="text-center text-danger">
+                            <?= $error ?>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="not-account">
@@ -72,31 +77,26 @@
                     </p>
                 </div>
                 <div class="forms">
-                    <form action="" method="POST" class="form">
+                    <form action="<?php echo site_url('index.php/user/'); ?>" method="POST" class="form">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputName" placeholder="Your username">
+                            <input type="text" class="form-control" id="floatingInputName" name="nom" placeholder="Your username">
                             <label for="floatingInputName fs-4">First name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputLastName" placeholder="Your password">
+                            <input type="text" class="form-control" id="floatingInputLastName" name="prenom" placeholder="Your password">
                             <label for="floatingInputLastName"> Last Name </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="floatingInputDate" placeholder="Your password">
-                            <label for="floatingInputDate"> Birth Date </label>
+                            <input type="text" class="form-control" id="floatingInputDate" name="email" placeholder="Enter a email">
+                            <label for="floatingInputDate"> Your mail </label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputUserName" placeholder="Your Username">
-                            <label for="floatingInputUserName"> User Name </label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingInputPass1" placeholder="Your password">
+                            <input type="password" class="form-control" id="floatingInputPass1" name="pass1" placeholder="Your password">
                             <label for="floatingInputPass1"> Enter a password </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingInputPass2" placeholder="Your password">
+                            <input type="password" class="form-control" id="floatingInputPass2" name="pass2" placeholder="Your password">
                             <label for="floatingInputPass2"> Verify the password </label>
                         </div>
                         <div class="form-floating mb-3 text-center">

@@ -19,17 +19,11 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('Login');
+	{	
+		$data['error'] = "";
+		$this->load->view('Login' , $data);
 		
 	}	
 	//cette page accepte une variable url facultative
-	public function bonjour(){
-		$data = array();
-		$data ['pseudo'] = 'Rakoto';
-		$data ['email'] = 'rakoto@mada.com';
-		$data ['en_ligne'] = true;
-
-		$this->load->view('Vues2',$data);
-	}	
+	
 }
