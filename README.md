@@ -4,4 +4,4 @@ Voici les liens du ToDo_List
 
 https://docs.google.com/spreadsheets/d/1rgQlTUy5D2B7o4lrUJpMNAMg_KxLvRCWFlMCyduSL4Q/edit?usp=sharing
 -------------------------------------------------------------------------------------------------
-lien pour commencer http://http://localhost/P_Final/ci306/User/login_Page
+lien pour commencer //localhost/P_Final/ci306/User/login_Page
