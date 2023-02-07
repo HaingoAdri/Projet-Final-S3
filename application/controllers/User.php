@@ -99,8 +99,7 @@ class User extends CI_Controller {
 			}else{
 				$user = $user['idUsers'];
 				$this->session->set_userdata('idUser' , $user);
-				$this->load->view( 'Objects/Index' );
-				// echo 'oueeee';
+				redirect('welcome/acceuil');
 			}
 	}
 

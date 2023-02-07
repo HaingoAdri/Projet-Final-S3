@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Showcase | One Hundred Pre-build website</title>
+    <title>Acceuil</title>
 
 
     <!-- ===============================================-->
@@ -91,33 +91,37 @@
           <nav class="navbar navbar-expand navbar-light rounded border mt-6 justify-content-center">
             <ul class="navbar-nav">
               <li class="nav-item"><a class="nav-link active fw-medium" href="javascript: void(0)" data-filter="*" data-bs-nav="data-bs-nav">All</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".admin" data-bs-nav="data-bs-nav">Admin & Dashboard</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".business" data-bs-nav="data-bs-nav">Business & Corporate</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".landing" data-bs-nav="data-bs-nav">Landing Pages</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".ecommerce" data-bs-nav="data-bs-nav">E-commerce</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".food" data-bs-nav="data-bs-nav">Food & Restaurant</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".medical" data-bs-nav="data-bs-nav">Medical & Health Care</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".travel" data-bs-nav="data-bs-nav">Travel & Booking</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".multipurpose" data-bs-nav="data-bs-nav">Multipurpose</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".portfolio" data-bs-nav="data-bs-nav">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".photography" data-bs-nav="data-bs-nav">Photography</a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".game" data-bs-nav="data-bs-nav">Game & Anime </a></li>
-              <li class="nav-item"><a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".other" data-bs-nav="data-bs-nav">Other</a></li>
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle fw-medium" href="javascript: void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
-                <div class="dropdown-menu dropdown-menu-end category-list" aria-labelledby="navbarDropdown"></div>
-              </li>
+
+              <?php
+                for( $i = 0 ; $i < count($categories) ; $i++ ){ ?>
+                    <li class="nav-item">
+                      <a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".<?= $categories[$i]['nom'];?>" data-bs-nav="data-bs-nav">
+                        <?= $categories[$i]['nom'] ?>
+                      </a>
+                    </li>
+                <?php } ?> 
             </ul>
           </nav><a class="back-to-top bg-info" href="#"><i class="fas fa-angle-double-up"> </i></a>
+          
+          <!-- Asiana an'ilay produits rehetra -->
+
           <div class="row mt-4 grid">
-            <div class="col-lg-4 col-6 mb-3 item admin"><a class="text-decoration-none" href="https://prium.github.io/phoenix/v1.0.0/index.html" data-category="admin">
-                <div class="card mb-2 bg-white card-showcase">
-                  <div class="card-body text-center">
-                    <h4 class="card-title fw-bold text-success mb-0">Phoenix</h4>
-                    <div class="card-text text-dark">Admin &amp; DashBoard</div>
-                  </div><img class="card-img-bottom" src="assets/img/template/img001.png" alt="Feature" />
-                </div>
-              </a></div>
-            <div class="col-lg-4 col-6 mb-3 item admin"><a class="text-decoration-none" href="https://technext.github.io/elaadmin/index.html" data-category="admin">
+            <?php
+              for( $i = 0 ; $i < count($objets) ; $i++ ){ ?>
+                <div class="col-lg-4 col-6 mb-3 item admin">
+                  <a class="text-decoration-none" href="https://prium.github.io/phoenix/v1.0.0/index.html" data-category="admin">
+                  <div class="card mb-2 bg-white card-showcase">
+                    <div class="card-body text-center">
+                      <h4 class="card-title fw-bold text-success mb-0">Phoenix</h4>
+                      <div class="card-text text-dark">Admin &amp; DashBoard</div>
+                    </div>
+                    <img class="card-img-bottom" src="" alt="Feature" />
+                  </div>
+                </a>
+              </div>    
+              <!-- var_dump($objets); -->
+            <?php  } ?>
+            <!-- <div class="col-lg-4 col-6 mb-3 item admin"><a class="text-decoration-none" href="https://technext.github.io/elaadmin/index.html" data-category="admin">
                 <div class="card mb-2 bg-white card-showcase">
                   <div class="card-body text-center">
                     <h4 class="card-title fw-bold text-success mb-0">Elaadmin</h4>
@@ -909,7 +913,7 @@
                   </div><img class="card-img-bottom" src="assets/img/template/img100.png" alt="Feature" />
                 </div>
               </a></div>
-          </div>
+          </div> -->
         </div><!-- end of .container-->
 
       </section>
@@ -940,8 +944,6 @@
             <h1 class="mb-4 fw-bold text-white fs-10">Ready to get started?</h1>
             <p class="text-dark fw-medium">
               Takalo-takalo project<br /> Made by Sarobidy ETU002032 - Rova ETU002069 - Haingo ETU001969</p>
-                <!-- <i class="fas fa-download me-3"></i>Download Free</a> -->
-            <!-- <p class="mb-0 text-white mt-6 fs--1">Brought to you with<span class="text-success fas fa-heart mx-1"></span>from<a class="text-decoration-none ms-1 text-white" href="https://themewagon.com/" target="_blank">ThemeWagon</a></p> -->
           </div>
         </div><!-- end of .container-->
 
@@ -961,14 +963,13 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="<?= base_url('vendors/@popperjs/popper.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/bootstrap/bootstrap.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/is/is.min.js') ?>"></script>
-    
-    <script src="<?= base_url('vendors/fontawesome/all.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/isotope-layout/isotope.pkgd.min.js') ?>"></script>
-    <script src="<?= base_url('vendors/imagesloaded/imagesloaded.pkgd.js') ?>"></script>
-    <script src="<?= base_url('vendors/isotope-packery/packery-mode.pkgd.min.js') ?>"></script>
+    <!-- <script src="<?= base_url('assets/vendors/@popperjs/popper.min.js') ?>"></script> -->
+    <script src="<?= base_url('assets/assets/bootstrap/bootstrap-5.0.2/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/is/is.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/fontawesome/all.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/isotope-layout/isotope.pkgd.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/imagesloaded/imagesloaded.pkgd.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/isotope-packery/packery-mode.pkgd.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/theme.js') ?>"></script>
 
   </body>

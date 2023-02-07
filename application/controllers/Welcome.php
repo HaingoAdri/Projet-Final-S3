@@ -20,6 +20,16 @@ class Welcome extends CI_Controller {
 	 */
 	public function index(){	
 		redirect( site_url('user/') );
+	}
+
+	function acceuil(){
+
+		$this->load->model('Categorie_model' , 'categories');
+		$this->load->model('Object_model' , 'objets');
+		$data['categories'] = $this->categories->getAllCategories();
+		$data['objets'] = $this->objets->getAllProducts();
+		$this->load->view('Objects/Index' , $data);
+
 	}	
 	//cette page accepte une variable url facultative
 	

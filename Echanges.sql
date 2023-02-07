@@ -150,69 +150,69 @@ create table lien_image(
     FOREIGN KEY(idObjet) REFERENCES objets(idObjet)
 );
 insert into lien_image VALUES
-        (default,1,'http://localhost/P_Final/assets/image/HYUNDAI-VELOSTER-01.jpg');
+        (default,1,'HYUNDAI-VELOSTER-01.jpg');
 
 insert into lien_image VALUES
-        (default,2,'http://localhost/P_Final/assets/image/Dodge Ram.jpg');
+        (default,2,'Dodge Ram.jpg');
 
 insert into lien_image VALUES
-        (default,3,'http://localhost/P_Final/assets/image/Toyota Tundra.jpg');
+        (default,3,'Toyota Tundra.jpg');
 
 insert into lien_image VALUES
-        (default,4,'http://localhost/P_Final/assets/image/Golf8_1.jpg');
+        (default,4,'Golf8_1.jpg');
 
 insert into lien_image VALUES
-        (default,5,'http://localhost/P_Final/assets/image/CCXR Trevita.jpg');
+        (default,5,'CCXR Trevita.jpg');
 
 insert into lien_image VALUES
-        (default,6,'http://localhost/P_Final/assets/image/BMW X71.jpg');
+        (default,6,'BMW X71.jpg');
 
 insert into lien_image VALUES
-        (default,7,'http://localhost/P_Final/assets/image/isuzu-d-max-1.jpg');
+        (default,7,'isuzu-d-max-1.jpg');
 
 insert into lien_image VALUES
-        (default,8,'http://localhost/P_Final/assets/image/Mp5.jpg');
+        (default,8,'Mp5.jpg');
 
 insert into lien_image VALUES
-        (default,9,'http://localhost/P_Final/assets/image/P90-.png');
+        (default,9,'P90-.png');
 
 insert into lien_image VALUES
-        (default,10,'http://localhost/P_Final/assets/image/uzi1.jpg');
+        (default,10,'uzi1.jpg');
 
 insert into lien_image VALUES
-        (default,11,'http://localhost/P_Final/assets/image/AK-47.jpg');
+        (default,11,'AK-47.jpg');
 
 insert into lien_image VALUES
-        (default,12,'http://localhost/P_Final/assets/image/Grenade.jpg');
+        (default,12,'Grenade.jpg');
 insert into lien_image VALUES
-        (default,13,'http://localhost/P_Final/assets/image/M16-.jpg');
+        (default,13,'M16-.jpg');
 
 insert into lien_image VALUES
-        (default,14,'http://localhost/P_Final/assets/image/Revolver1.jpg');
+        (default,14,'Revolver1.jpg');
 
 insert into lien_image VALUES
-        (default,15,'http://localhost/P_Final/assets/image/Kniffe1.jpg');
+        (default,15,'Kniffe1.jpg');
 
 insert into lien_image VALUES
-        (default,16,'http://localhost/P_Final/assets/image/Thompson.jpg');
+        (default,16,'Thompson.jpg');
 
 insert into lien_image VALUES
-        (default,17,'http://localhost/P_Final/assets/image/dragunov1.png');
+        (default,17,'dragunov1.png');
 
 insert into lien_image VALUES
-        (default,18,'http://localhost/P_Final/assets/image/Asus E510.jpg');
+        (default,18,'Asus E510.jpg');
 
 insert into lien_image VALUES
-        (default,19,'http://localhost/P_Final/assets/image/asus1.jpg');
+        (default,19,'asus1.jpg');
 
 insert into lien_image VALUES
-        (default,20,'http://localhost/P_Final/assets/image/GalaxSamsung.jpg');
+        (default,20,'GalaxSamsung.jpg');
 
 insert into lien_image VALUES
-        (default,21,'http://localhost/P_Final/assets/image/Samsung1.jpg');
+        (default,21,'Samsung1.jpg');
 
 insert into lien_image VALUES
-        (default,22,'http://localhost/P_Final/assets/image/acer_aspire_7.jpg');
+        (default,22,'acer_aspire_7.jpg');
 
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
