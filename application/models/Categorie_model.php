@@ -11,16 +11,12 @@
 		}
 
 		function getAllCategoriesOf( $idObject ){
-			$sql = "select * 
-				from fusionObjets as f
-				join Categories as c
-				on f.idCategories = c.idCategories
-				where f.idObjet = %d
-			";
-			$sql = sprintf( $sql , $this->db->escape($idObject) );
+			$sql = "select c.* from fusionObjets as f join Categories as c on f.idCategories = c.idCategories where f.idObjet = %d ";
+			$sql = sprintf( $sql , $idObject );
+			// echo $sql;
 			$query = $this->db->query($sql);
 			$array = $query->result_array();
-			return $array;
+			return (count($array) == 0) ? NULL : $array;
 		}
 
 		function stringify( $categories ){
