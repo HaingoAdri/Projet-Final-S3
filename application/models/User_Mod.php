@@ -13,7 +13,7 @@ class User_Mod extends CI_Model{
 
     function inscription( $nom , $prenom , $email , $password  ){
         $sql = "insert into utilisateurs values ( default , %s , %s , %s , %s , false )";
-        $sql = sprintf($sql , $nom , $prenom , $email , $password);
+        $sql = sprintf($sql , $this->db->escape($nom) , $this->db->escape($prenom) , $this->db->escape($email) , $this->db->escape($password));
         $this->db->query($sql);
     }
     

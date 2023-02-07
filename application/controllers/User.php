@@ -36,8 +36,11 @@ class User extends CI_Controller {
     }
 
     function index(){
-
       $this->load->view('Login' , $this->getData());
+    }
+
+    function inscriptionPage(){
+    	$this->load->view('Inscription' , $this->getData());	
     }
 
 		public function login(){
@@ -57,14 +60,16 @@ class User extends CI_Controller {
 		if( $verify == false ){
 			$this->load_error_inscription($data);
 		}else{
-			echo "OUEEEEEEE";
+			$this->load->model('User_Mod' , 'user');
+				$this->user->inscription( $nom , $prenom , $email, $pass );
+			// echo "OUEEEEEEE";
 		}
 	}
 
 	function load_error_inscription( $data ){
 		$data['error_inscription'] = 'The password is not the same';
 		$data['error'] = '';
-		$this->load->view('Login#sign-up' , $data); 
+		$this->load->view('Inscription' , $data); 
 
 	}
 
@@ -80,7 +85,6 @@ class User extends CI_Controller {
 		$email = $this->input->post('email');
 		$password = $this->input->post('pass1');
 		$password2 = $this->input->post('pass2');
-
 		// alefa mi-verifier aloha
 		$this->load->helper('Password');
 		$v = verify($password , $password2);
@@ -93,7 +97,7 @@ class User extends CI_Controller {
 			if( $user == NULL ){
 				$this->load_error_login($data);
 			}else{
-				echo "OUEEEEE";
+				echo 'oueeee';
 			}
 	}
 
