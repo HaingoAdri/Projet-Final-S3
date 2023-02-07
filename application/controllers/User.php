@@ -19,10 +19,33 @@ class User extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
     public function _construct(){
-          parent::_construct();      
+          parent::_construct();
+         
     } 
-
-    function getData(){
+	public function about(){
+		$date['titre'] = 'Acceuil';
+		$data ['contents'] = 'Admin_Panel';
+		$this->load->view('template',$data);
+	}
+    public function login_Page(){
+        $this->load->view('Index1');
+    }
+	public function hafa(){
+		$this->load->view('Login_Admin');		
+	}
+	public function voir(){
+		$this->load->view('Login_Utilisateur');
+	}
+	public function admin(){
+		$this->load->view('Admin_Panel');
+	}
+	public function insert_Categorie(){
+		$this->load->view('AddCategory');
+	}
+	public function update_categorie(){
+		$this->load->view('Update_Category');
+	}
+	function getData(){
     	$data['nom'] = '';
 			$data['prenom'] = '';
 			$data['email'] = '';
@@ -99,8 +122,10 @@ class User extends CI_Controller {
 			}else{
 				$user = $user['idUsers'];
 				$this->session->set_userdata('idUser' , $user);
-				redirect('welcome/acceuil');
+				$this->load->view( 'Objects/Index' );
+				// echo 'oueeee';
 			}
 	}
 
+	
 }
