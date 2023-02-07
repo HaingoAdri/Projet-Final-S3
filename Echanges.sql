@@ -57,39 +57,27 @@ insert into objets values
 insert into objets values 
         (default,'BMW X7','100000000','Neufs','2');
 insert into objets values 
-        (default,'Renault Arkana','90000000','Occasion','3');
-insert into objets values 
         (default,'Isuzu D Max','95000000',' Neufs','3');
-
 insert into Objets values
         (default,'Mp5','25000000',' Arme Mini Porte',1);
 insert into Objets values
         (default,'FN P90','26000000','Produit nouveau',1);
 insert into Objets values(
           default,'Uzi','10000000','Mini Mitraillete',1);
-insert into Objets values(
-          default,'Mac-10','14000000','Bonne Qualite',2
-);
 insert into Objets values
         (default,'AK-47','150000000','Plus utiliser des Militaires',2);
 insert into Objets values(
           default,'Grenade','200000','Bombe',2);
 insert into Objets values(
-          default,'AK-12','40000000','Meilleur',3);
-insert into Objets values(
          default,'M16','25000000','Mitrailleuse',3);
 insert into Objets values(
-          default,'Revolver','130000000','Meilleur que la Pistolet',3
-);
+          default,'Revolver','130000000','Meilleur que la Pistolet',3);
 insert into Objets values(
-          default,'Militairy Knife','1500000','Mortelle',3
-);
+          default,'Militairy Knife','1500000','Mortelle',3);
 insert into Objets values(
-          default,'Thompson Gun','20000000','Corps a corps',2
-);
+          default,'Thompson Gun','20000000','Corps a corps',2);
 insert into OBjets values(
-          default,'dragonov','500000000','Sniper',1
-);
+          default,'dragonov','500000000','Sniper',1);
 insert into objets values
         (default,'Asus E510','3000000','En stock',1);
 insert into objets values 
@@ -100,8 +88,6 @@ insert into Objets values
         (default,'SamsungNotebook Pen','3500000','Le PC Portable se dote d un Stylet',2);
 insert into Objets values 
         (default, 'Acer Aspire','2000000','Full HD',3);
-insert into Objets(default,'Lenovo V15','1300000','En Stock',3);
-
 create table fusionObjets(
     idfusionObjets int auto_increment not null PRIMARY KEY,
     idObjet int not null,
@@ -109,6 +95,8 @@ create table fusionObjets(
     FOREIGN key(idObjet) REFERENCES objets(idObjet),
     FOREIGN key(idCategories) REFERENCES Categories(idCategories)
 );
+insert into fusionObjets
+        (default, );
 create table lien_image(
     idImage int auto_increment primary KEY not null,
     idObjet int not null,
