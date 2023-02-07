@@ -61,7 +61,7 @@ class User extends CI_Controller {
 			$this->load_error_inscription($data);
 		}else{
 			$this->load->model('User_Mod' , 'user');
-				$this->user->inscription( $nom , $prenom , $email, $pass );
+			$this->user->inscription( $nom , $prenom , $email, $pass );
 			// echo "OUEEEEEEE";
 		}
 	}
@@ -97,7 +97,10 @@ class User extends CI_Controller {
 			if( $user == NULL ){
 				$this->load_error_login($data);
 			}else{
-				echo 'oueeee';
+				$user = $user['idUsers'];
+				$this->session->set_userdata('idUser' , $user);
+				$this->load->view( 'Objects/Index' );
+				// echo 'oueeee';
 			}
 	}
 
