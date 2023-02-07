@@ -211,8 +211,6 @@ insert into lien_image VALUES
 insert into lien_image VALUES
         (default,21,'Samsung1.jpg');
 
-insert into lien_image VALUES
-        (default,22,'acer_aspire_7.jpg');
 
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
@@ -224,7 +222,7 @@ create table Proposition(
     FOREIGN KEY (idProposer) REFERENCES utilisateurs(idUsers),
     FOREIGN KEY (idMpandray) REFERENCES utilisateurs(idUsers),
     FOREIGN key (idObjet_proposer) REFERENCES objets(idObjet),
-    FOREIGN key (idObjet_demander) REFERENCES Objets(idObjet)
+    FOREIGN key (idObjet_demander) REFERENCES objets(idObjet)
 );
 
 
