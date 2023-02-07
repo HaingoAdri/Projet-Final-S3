@@ -19,22 +19,18 @@ class User extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
     public function _construct(){
-          parent::_construct();
-         
+          parent::_construct();      
     } 
-    public function login_Page(){
+     function login_Page(){
             $this->load->view('Login');
     }
-	public function login(){
-		$email=$_POST['email'];
-		$username=$_POST['user'];
-		$this->load->model('User_Mod')->login_ao($email,$username);
-		if(!$email){
-			$this->load->view('Accueuil');
-		}else{
-			$this->load->view('Login');
-		}
-		
+
+		public function login(){
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$this->load->model('User_Mod' , 'user');
+			$user = $this->user->connect( $email , $password );
+			echo $user;
 	}
 
 }
