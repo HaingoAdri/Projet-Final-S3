@@ -44,7 +44,7 @@ create table objets(
     idUsers int not null,
     FOREIGN key (idUsers) REFERENCES utilisateurs(idUsers)
 );
-insert into Objets values
+insert into objets values
         (default,'Hyundai Veloster Turbo','32000000','Neufs','1');
 insert into objets values 
         (default,'Dodge Ram','100000000','Neufs','1');
@@ -58,35 +58,35 @@ insert into objets values
         (default,'BMW X7','100000000','Neufs','2');
 insert into objets values 
         (default,'Isuzu D Max','95000000',' Neufs','3');
-insert into Objets values
+insert into objets values
         (default,'Mp5','25000000',' Arme Mini Porte',1);
-insert into Objets values
+insert into objets values
         (default,'FN P90','26000000','Produit nouveau',1);
-insert into Objets values(
+insert into objets values(
           default,'Uzi','10000000','Mini Mitraillete',1);
-insert into Objets values
+insert into objets values
         (default,'AK-47','150000000','Plus utiliser des Militaires',2);
-insert into Objets values(
+insert into objets values(
           default,'Grenade','200000','Bombe',2);
-insert into Objets values(
+insert into objets values(
          default,'M16','25000000','Mitrailleuse',3);
-insert into Objets values(
+insert into objets values(
           default,'Revolver','130000000','Meilleur que la Pistolet',3);
-insert into Objets values(
+insert into objets values(
           default,'Militairy Knife','1500000','Mortelle',3);
-insert into Objets values(
+insert into objets values(
           default,'Thompson Gun','20000000','Corps a corps',2);
-insert into OBjets values(
+insert into objets values(
           default,'dragonov','500000000','Sniper',1);
 insert into objets values
         (default,'Asus E510','3000000','En stock',1);
 insert into objets values 
         (default,'Asus VivoBook E510MA','3200000','Meilleur Produit',1);
-insert into Objets values
+insert into objets values
         (default,'Samsung Galaxy Book Go','3300000','Equipe d une puce ARM',2);
-insert into Objets values 
+insert into objets values 
         (default,'SamsungNotebook Pen','3500000','Le PC Portable se dote d un Stylet',2);
-insert into Objets values 
+insert into objets values 
         (default, 'Acer Aspire','2000000','Full HD',3);
 
 
@@ -153,13 +153,13 @@ create table lien_image(
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
     idProposer int not null,
-    idMpandray int not null,
+    idRequested int not null,
     idObjet_proposer int not null,
-    idObjet_demander int not null,
+    idObjet_requested int not null,
 
     FOREIGN KEY (idProposer) REFERENCES utilisateurs(idUsers),
-    FOREIGN KEY (idMpandray) REFERENCES utilisateurs(idUsers),
+    FOREIGN KEY (idRequested) REFERENCES utilisateurs(idUsers),
     FOREIGN key (idObjet_proposer) REFERENCES objets(idObjet),
-    FOREIGN key (idObjet_demander) REFERENCES Objets(idObjet)
+    FOREIGN key (idObjet_requested) REFERENCES objets(idObjet)
 );
 
