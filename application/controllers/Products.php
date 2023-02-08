@@ -44,7 +44,6 @@
 				$_FILES['userfile']['size'] = $files['userfile']['size'][$i];
 				
 				if( $this->upload->do_upload() ){
-				// var_dump($files);
 					$upload_data = $this->upload->data();
 		            $file_name = $upload_data['file_name'];
 
@@ -61,7 +60,19 @@
 
 		}
 
+		function modify(){
+			$id = $this->input->post('idObjet');
+			$nom = $this->input->post('nom');
+			$price = $this->input->post('price');
+			$category = $this->input->post('category');
+			$descri = $this->input->post('descri');
+			// Inserena fotsiny ito zavatra ito
 
+			$this->load->model('Object_model' , 'object');
+			$this->object->modify( $id , $nom , $price , $descri );
+			$this->object->modifyCategory( $id , $category );
+			redirect('welcome/modify?idObject='.$id);
+		}
 		// Inona no azo atao ato afaka verifiena aloha ilay nom
 
 	}

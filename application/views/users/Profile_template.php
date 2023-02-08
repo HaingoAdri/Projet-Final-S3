@@ -34,10 +34,10 @@
                     </div>
                     <img class="card-img-bottom" src="<?php echo base_url('assets/images/image/'.$objets[$i]['image']['lienImage']); ?>" alt="Feature" />
                     <div class="card-footer text-center">
-                      <a href="" class="btn btn-primary">
+                      <a href="<?php echo site_url('welcome/modify?idObject='.$objets[$i]['idObjet']) ?>" class="btn btn-primary">
                         Modify
                       </a>
-                      <a href="" class="btn btn-danger">
+                      <a href="<?php echo site_url('welcome/delete?idObject='.$objets[$i]['idObjet']) ?>" class="btn btn-danger">
                         Delete
                       </a>
                     </div>

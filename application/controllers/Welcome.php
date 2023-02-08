@@ -58,11 +58,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('Add_Object' , $data);
 	}
 	function modify(){
-		// Alaina daholo ny avy any anaty base
 		$this->load->model('Object_model' , 'o');
-		$id = $this->input->get('idObjet');
-		$ob = $this->o->
-		$this->load->view('ModifyObject');
+		$this->load->model('Categorie_model' , 'c');
+		$id = $this->input->get('idObject');
+		// var_dump($id);
+		$ob = $this->o->getObject($id);
+		$data['categories'] = $this->c->getAllCategories();
+		$data['objet'] = $ob;
+		// var_dump($ob);
+		$this->load->view('Objects/ModifyObject' , $data);
 	}
 	//cette page accepte une variable url facultative
 	

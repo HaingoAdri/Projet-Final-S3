@@ -39,21 +39,33 @@
         <h2 class="text-center text-decoration-underline">
             Add Your object
         </h2>
-        <form action="<?php echo site_url('products/modifyProduct'); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo site_url('products/modify'); ?>" method="post" enctype="multipart/form-data">
             <div class="mb-3">
+                <input type="hidden" class="form-control" value="<?= $objet['idObjet'] ?>" name="idObjet">
                 <label for="" class="form-label"> Enter the product name </label>
-                <input type="text" class="form-control" value="<?= $nom ?>" name="nom">
+                <input type="text" class="form-control" value="<?= $objet['nom'] ?>" name="nom">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label"> Enter the product price </label>
-                <input type="text" class="form-control" value="<?= $price ?>" name="price">
+                <input type="text" class="form-control" value="<?= $objet['prix'] ?>" name="price">
+            </div>
+            <div class="mb-3">
+                <label for=""> Choose the category </label>
+                <select name="category" id="">
+                    <?php
+                        for( $i = 0 ; $i < count($categories) ; $i++ ){ ?>
+                            <option value="<?= $categories[$i]['idCategories'] ?>" <?php echo ( $categories[$i]['idCategories'] == $objet['categorie']['idCategories'] ) ? "selected" : "" ?> >
+                                <?= $categories[$i]['nom'] ?>
+                            </option>
+                        <?php } ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label"> Enter the product Description </label>
-                <input type="text" class="form-control" value="<?= $description ?>" name="descri">
+                <input type="text" class="form-control" value="<?= $objet['descriptions'] ?>" name="descri">
             </div>
             <div class="mb-3 text-center">
-                <input type="submit" class="btn btn-primary" value="Add Products">
+                <input type="submit" class="btn btn-primary" value="Modify Products">
             </div>
         </form>
     </section>

@@ -43,8 +43,10 @@
 			$sql = "select * from objets where idObjet = %d";
 			$sql = sprintf($sql , $id);
 			$query = $this->db->query($sql);
+			$array = array();
 			$array = $query->result_array();
 			$array = $this->getAdditionalData($array);
+			// var_dump($array);
 			return $array[0];
 		}
 
@@ -58,6 +60,22 @@
 			$sql = "insert into fusionObjets values (default , %s , %s)";
 			$sql = sprintf($sql , $this->db->escape($idOb) , $this->db->escape($idCat));
 			$this->db->query($sql);	
+		}
+
+		function modify( $id , $nom , $prix , $descri ){
+			$sql = "update objets set nom = %s , prix = %d ,descriptions = %s where idObjet = %d";
+			$sql = sprintf(	$sql , $this->db->escape($nom) , $prix , $this->db->escape($descri) , $id );
+			$this->db->query($sql);
+		}
+
+		// Ahoana no ataoko raha i modifie category aho
+		// Alaiko fotsiny ny categorie an'zoky aloha
+		function modifyCategory($idO , $idC){
+			$me = $this->categorie->getAllCategoriesOf($idO)[0];
+			$sql = "update fusionObjets set idCategories = %d where idObjet = %d and idCategories = %d";
+			$sql = sprintf( $sql , $idC , $idO , $me['idCategories'] );
+			// var_dump($me);
+			$this->db->query( $sql );
 		}
 
 		function getLastInsered( ){
