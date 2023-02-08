@@ -82,6 +82,18 @@
 		}
 		// Inona no azo atao ato afaka verifiena aloha ilay nom
 
+		function search(){
+			$title = $this->input->post('titre');
+			$categorie = $this->input->post('category');
+			// var_dump($categorie);
+			$this->load->model('Object_model' , 'object');
+			$this->load->model('Categorie_model' , 'categories');
+			$data['objets'] = $this->object->search($title , $categorie);
+			$data['categories'] = $this->categories->getAllCategories();
+			$data['id'] = $this->session->userdata('idUser');
+			$this->load->view('Objects/Search' , $data);
+		}
+
 	}
 
 ?>

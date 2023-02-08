@@ -8,6 +8,8 @@
 			$id = $this->input->get('id');
 			// alaina ny produit misy anle id
 			$this->load->model('Object_model' , 'object');
+			$this->load->model('Categorie_model' , 'categories');
+			$data['categories'] = $this->categories->getAllCategories();
 			$data['object'] = $this->object->getObject($id);
 			//azoko ny object ilaiko
 
@@ -23,6 +25,7 @@
 			$myObj = $this->input->post('toExchange');
 
 			$this->load->model('Exchange_model' , 'echange');
+			
 			$this->echange->exchange( $myself , $owner , $ownerO , $myObj );
 			redirect(site_url('exchange/?id='.$ownerO));
 		}
@@ -30,7 +33,9 @@
 		function proposition(){
 			// inona no atao ato maka ny propositions rehetra
 			$this->load->model('Exchange_model' , 'exchange');
-			$data['sent'] = $this->exchange->getSent( $this->session->userdata('idUser') ); 			
+			$this->load->model('Categorie_model' , 'categories');
+			$data['sent'] = $this->exchange->getSent( $this->session->userdata('idUser') );
+			$data['categories'] = $this->categories->getAllCategories(); 			
 			$data['received'] = $this->exchange->getReceived( $this->session->userdata('idUser') );
 			$this->load->view('users/Propositions' , $data);
 		}
@@ -52,11 +57,12 @@
 		function self(){
 			$id = $this->input->get('id');
 			$this->load->model('Exchange_model' , 'exchange');
+			$this->load->model('Categorie_model' , 'categories');
 			$this->load->model('Object_model' , 'object');
 
 			$data['objet'] = $this->object->getObject( $id );
 			$data['historics'] = $this->exchange->getHistorics( $id );
-
+			$data['categories'] = $this->categories->getAllCategories();
 			$this->load->view('Objects/Self' , $data);
 		}
 

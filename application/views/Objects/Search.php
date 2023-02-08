@@ -59,21 +59,6 @@
       <section class="py-0 z-index-1">
 
         <div class="container-fluid px-5">
-          <nav class="navbar navbar-expand navbar-light rounded border mt-6 justify-content-center">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link active fw-medium" href="javascript: void(0)" data-filter="*" data-bs-nav="data-bs-nav">All</a></li>
-              <?php
-                for( $i = 0 ; $i < count($categories) ; $i++ ){ ?>
-                    <li class="nav-item">
-                      <a class="nav-link fw-medium" href="javascript: void(0)" data-filter=".<?= strtolower($categories[$i]['nom'])?>" data-bs-nav="data-bs-nav">
-                        <?= $categories[$i]['nom'] ?>
-                      </a>
-                    </li>
-                <?php } ?> 
-            </ul>
-          </nav><a class="back-to-top bg-info" href="#"><i class="fas fa-angle-double-up"> </i></a>
-          
-
           <div class="row mt-4 grid">
             <?php
               for( $i = 0 ; $i < count($objets) ; $i++ ){  

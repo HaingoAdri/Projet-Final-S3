@@ -21,6 +21,60 @@
 			return $array;
 		}
 
+		function search( $titre , $categories ){
+			$val = array();
+			if( strcmp("", $titre) == 0){
+				//Si il'y as pas de titre rechercher la categorie
+				$val = $this->searchByCategory($categories);
+			}else{
+				$val = $this->searchByTitle($titre , $categories);
+			}
+			return $val;
+		}
+
+		function searchByCategory($categorie){
+			$sql = "
+			Select o.* 
+			from(
+				Select f.idObjet
+				from fusionObjets as f
+				where f.idCategories = %d ) as i 
+				join objets as o on o.idObjet = i.idObjet
+			";
+			$sql = sprintf($sql , $categorie);
+			print($sql);
+			$query = $this->db->query($sql);
+			$array = $query->result_array();
+			$array = $this->getAdditionalData($array);
+			// var_dump($array);
+			return $array;
+		}
+
+		function searchByTitle( $title, $categorie ){
+			// Alaiko daholo ny objets rehetra
+			$sql = "
+			Select o.* 
+			from(
+				Select idObjet
+				from fusionObjets as f
+				where f.idCategories = %d) as i 
+				join objets as o on o.idObjet = i.idObjet
+			";
+			$sql = sprintf($sql , $categorie);
+			$query = $this->db->query($sql);
+			$array = $query->result_array();
+			$arr = array();
+			for( $i = 0 ; $i  < count($array) ; $i++ ){
+				if( stripos( $array[$i]['nom'] , $title , 0) != false ){
+					$arr[] = $array;
+				}
+			}
+			$arr = $this->getAdditionalData($arr);
+			// var_dump($arr);
+			return $arr;
+			//Zay ny requete
+		}
+
 		function getObjectsOf( $idUsers ){
 			$sql = "select * from objets where idUsers = %s";
 			$sql = sprintf( $sql , $this->db->escape($idUsers) );

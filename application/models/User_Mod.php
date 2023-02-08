@@ -25,4 +25,12 @@ class User_Mod extends CI_Model{
         return $array[0];
     }
     
+    function connectAdmin( $email , $password ){
+        $sql = "select * from utilisateurs where email = %s and password = %s and isAdmin = 1";
+        $sprint = sprintf($sql,$this->db->escape($email),$this->db->escape($password));
+        var_dump($sprint);
+        $query = $this->db->query($sprint);
+        $valiny = $query->result_array();
+        return (count($valiny) == 0) ? NULL : $valiny[0];
+    }
 }

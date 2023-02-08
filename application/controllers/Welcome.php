@@ -25,6 +25,19 @@ class Welcome extends CI_Controller {
 	}
 
 	public function index(){	
+		$this->load->view('Index');
+		
+	}
+
+	function admin(){
+		redirect(site_url('user/admin'));
+	}
+
+	function adminpanel(){
+		redirect(site_url('user/admin'));
+	}
+
+	public function client(){
 		redirect( site_url('user/') );
 	}
 
@@ -40,8 +53,10 @@ class Welcome extends CI_Controller {
 	}	
 
 	function profil(){
+		$this->load->model('Categorie_model' , 'categories');
 		$this->load->model('Object_model' , 'objets');
 		$this->load->model('User_Mod' , 'user');
+		$data['categories'] = $this->categories->getAllCategories();
 		$data['objets'] = $this->objets->getObjectsOf($this->session->userdata('idUser'));
 		$data['user'] = $this->user->getuser($this->session->userdata('idUser'));
 		// var_dump($data);

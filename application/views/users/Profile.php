@@ -14,10 +14,6 @@
         ?>
     </section>
     <section class="py-0">
-    	<!-- Inona no apoitra ato 
-    		- User info aloha no apoitra ato
-			- Ireo Objet rehetra ananany
-    	-->
     	<?php $this->load->view('users/Profile_template') ?>
     </section>
 	

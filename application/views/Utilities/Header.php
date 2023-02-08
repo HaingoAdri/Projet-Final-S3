@@ -12,7 +12,7 @@
           <li><a href="<?= site_url('welcome/add') ?>" class="nav-link px-2 link-dark">Add Object</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto d-flex mb-3 mb-lg-0 me-lg-3">
+        <form class="col-12 col-lg-auto d-flex mb-3 mb-lg-0 me-lg-3" method="POST" action="<?= site_url('products/search') ?>">
           <input type="text" class="form-control w-50" name="titre" placeholder="Search..." aria-label="Search">
           <!-- Mila avadika ho mini-select ito search bar ito -->
           <select class="form-select w-50" name="category" placeholder="Search..." aria-label="Search">

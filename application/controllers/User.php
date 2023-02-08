@@ -36,9 +36,11 @@ class User extends CI_Controller {
 	public function voir(){
 		$this->load->view('Login_Utilisateur');
 	}
-	public function admin(){
-		$this->load->view('Admin_Panel');
+
+	function adminPanel(){
+		$this->load->view();	
 	}
+
 	public function insert_Categorie(){
 		$this->load->view('AddCategory');
 	}
@@ -60,6 +62,18 @@ class User extends CI_Controller {
 
     function index(){
       $this->load->view('Login' , $this->getData());
+    }
+
+    function admin(){
+    	$this->load->view('admin/index' , $this->getData());	
+    }
+
+    function loginadmin(){
+    		$email = $this->input->post('email');
+				$password = $this->input->post('password');
+				$this->load->model('User_Mod' , 'user');
+				$user = $this->user->connectAdmin( $email , $password );
+				$this->showPageAdmin( $email , $password ,$user );
     }
 
     function inscriptionPage(){
@@ -101,6 +115,12 @@ class User extends CI_Controller {
 		$this->load->view('Login' , $data);
 	}
 
+
+	function load_error_login_admin($data){
+		$data['error'] = 'Please verify the credentials you use';
+		$this->load->view('admin/index' , $data);
+	}
+
 	function signup( ){
 		// inona ny atao ato
 		$nom = $this->input->post('nom');
@@ -125,6 +145,18 @@ class User extends CI_Controller {
 				// $this->load->view( 'Objects/Index' );
 				redirect('welcome/acceuil');
 				// echo 'oueeee';
+			}
+	}
+
+	function showPageAdmin( $email , $password ,$user ){
+		$data['emailLogin'] = $email;
+		$data['passLogin'] = $password;
+			if( $user == NULL ){
+				$this->load_error_login_admin($data);
+			}else{
+				$user = $user['idUsers'];
+				$this->session->set_userdata('admin' , $user);
+				redirect('Admin/');
 			}
 	}
 
