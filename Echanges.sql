@@ -209,10 +209,10 @@ insert into lien_image VALUES
         (default,20,'http://localhost/P_Final/assets/image/GalaxSamsung.jpg');
 
 insert into lien_image VALUES
-        (default,21,'http://localhost/P_Final/assets/image/Samsung1.jpg');
+        (default,21,'http://localhost/P_Final/assets/image/SamsungPen.jpg');
 
 insert into lien_image VALUES
-        (default,22,'http://localhost/P_Final/assets/image/acer_aspire_7.jpg');
+        (default,22,'http://localhost/P_Final/assets/image/Acer.jpg');
 
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
