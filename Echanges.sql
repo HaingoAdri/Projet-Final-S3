@@ -233,5 +233,14 @@ CREATE TABLE echange(
         FOREIGN KEY (idUsers) REFERENCES utilisateurs(idUsers),
         FOREIGN key(idObjet) REFERENCES Objets(idObjet)
 );
+create table Test(
+        idTest int auto_INCREMENT primary key not null,
+        idUsers int not null,
+        idObjet  int not null,
+        idProposition int not null,
+        FOREIGN key (idUsers) REFERENCES utilisateurs(idUsers),
+        FOREIGN key (idObjet)  REFERENCES objets(idObjet),
+        FOREIGN key (idProposition) REFERENCES Proposition(idProposition)
+);
 
 
