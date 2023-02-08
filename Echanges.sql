@@ -227,11 +227,11 @@ create table Proposition(
     FOREIGN key (idObjet_demander) REFERENCES Objets(idObjet)
 );
 CREATE TABLE echange(
-        idEchange int auto_increment PRIMARY KEY,
+        idEchange int auto_increment PRIMARY KEY not null,
         idUsers int not null,
-        idObjets int not null,
+        idObjet int not null,
         FOREIGN KEY (idUsers) REFERENCES utilisateurs(idUsers),
-        FOREIGN key(idObjets) REFERENCES Objets(idObjets)
+        FOREIGN key(idObjet) REFERENCES Objets(idObjet)
 );
 
 
