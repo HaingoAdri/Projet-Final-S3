@@ -1,6 +1,5 @@
 <section style="background-color: #eee;">
-  <div class="container py-5">
-    
+  <div class="container py-5"> 
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
@@ -37,7 +36,7 @@
                       <a href="<?php echo site_url('welcome/modify?idObject='.$objets[$i]['idObjet']) ?>" class="btn btn-primary">
                         Modify
                       </a>
-                      <a href="<?php echo site_url('welcome/delete?idObject='.$objets[$i]['idObjet']) ?>" class="btn btn-danger">
+                      <a href="<?php echo site_url('products/delete?idObject='.$objets[$i]['idObjet']) ?>" class="btn btn-danger">
                         Delete
                       </a>
                     </div>

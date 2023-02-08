@@ -22,52 +22,77 @@
     <title>Takalo-Takalo</title>
     
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="http://localhost/P_Final/ci306/css/bootstrap.css" rel="stylesheet">
-    <link href="http://localhost/P_Final/ci306/css/fontawesome-all.css" rel="stylesheet">
-    <link href="http://localhost/P_Final/ci306/css/swiper.css" rel="stylesheet">
-	<link href="http://localhost/P_Final/ci306/css/magnific-popup.css" rel="stylesheet">
-	<link href="http://localhost/P_Final/ci306/css/styles.css" rel="stylesheet">
+    <link href="<?= base_url('assets/assets/bootstrap/bootstrap-5.0.2/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/fontawesome-all.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/swiper.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/magnific-popup.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/styles.css') ?>" rel="stylesheet">
 	
 	<!-- Favicon  -->
     <link rel="icon" href="http://localhost/P_Final/ci306/images/favicon.png">
 </head>
-<body data-spy="scroll" data-target=".fixed-top">
-<!-- Lightbox -->
- <div id="project-2" >
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="http://localhost/P_Final/ci306/images/project-2.jpg" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>Classic Industry</h3>
-                <hr class="line-heading">
-                <h6>Strategy Development</h6>
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
+<body >
+
+    <section class="py-0">
+        <?php $this->load->view('Utilities/Header') ?>
+    </section>
+
+    <section class="py-0">
+        <div class="my-4 grid mx-auto w-75">
+            <form action="<?php echo site_url('exchange/exchanges'); ?>" method="post">
+                
+                <div class="col-lg-4 col-6 mb-3 item">
+                    <input type="hidden" name="idObject1" value="<?= $object['idObjet'] ?>">
+                    <input type="hidden" name="idOwner" value="<?= $object['idUsers'] ?>">
+                    <a class="text-decoration-none">
+                      <div class="card mb-2 bg-white card-showcase">
+                        <div class="card-body text-center">
+                          <h4 class="card-title fw-bold text-success mb-0">
+                            <?= $object['nom'] ?>
+                          </h4>
+                          <div class="card-text text-dark"> 
+                            <?= $object['categorie']['nom'] ?>
+                          </div>
+                        </div>
+                        <img class="card-img-bottom" src="<?php echo base_url('assets/images/image/'.$object['image']['lienImage']); ?>" alt="Feature" />
+                        
+                      </div>
+                    </a>
                 </div>
-                <a class="btn-solid-reg" href="#your-link">Takalo</a>
-                <a class="btn-outline-reg mfp-close as-button" href="#projects">Modify</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+                <div class="col-lg-4 col-6 mb-3 offset-1 item ">
+                    <!-- Asiana liste kely fotsiny eto -->
+                    <div class="form">
+                        <h3 class="text-center text-decoration-underline">
+                            Exchange with :
+                        </h3>
+                            <select name="toExchange" class="form-select"> size="<?= count($myObject) ?>" id="" aria-label="size <?= count($myObject) ?> select example">
+                                <?php
+                                    for( $i = 0 ; $i < count($myObject) ; $i++ ){ ?>
+                                        <option value="<?= $myObject[$i]['idObjet'] ?>">
+                                            <?= $myObject[$i]['nom'] ?>
+                                        </option>
+                                    <?php } ?>
+                            </select>
+                            <div class=" text-center col-lg-4 col-6 my-3  ">
+                                <input type="submit" class="btn btn-primary" value="exchange">
+                            </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </section>
 
  <!-- Scripts -->
- <script src="http://localhost/P_Final/ci306/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="http://localhost/P_Final/ci306/http://localhost/P_Final/ci306/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="http://localhost/P_Final/ci306/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="http://localhost/P_Final/ci306/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="http://localhost/P_Final/ci306/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="http://localhost/P_Final/ci306/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="http://localhost/P_Final/ci306/js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
-    <script src="http://localhost/P_Final/ci306/js/isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
-    <script src="http://localhost/P_Final/ci306/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="http://localhost/P_Final/ci306/js/scripts.js"></script> <!-- Custom scripts -->
+ <script src="<?= base_url('assets/assets/bootstrap/bootstrap-5.0.2/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/assets/bootstrap/bootstrap-5.0.2/js/bootstrap.esm.min.js') ?>"></script>
+    
+    <script src="<?= base_url('assets/vendors/is/is.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/fontawesome/all.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/isotope-layout/isotope.pkgd.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/imagesloaded/imagesloaded.pkgd.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/isotope-packery/packery-mode.pkgd.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/theme.js') ?>"></script>
+
 </body>
 </html>

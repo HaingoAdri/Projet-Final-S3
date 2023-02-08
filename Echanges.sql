@@ -218,11 +218,23 @@ create table Proposition(
     idMpandray int not null,
     idObjet_proposer int not null,
     idObjet_demander int not null,
+    timeExchange datetime default null,
 
     FOREIGN KEY (idProposer) REFERENCES utilisateurs(idUsers),
     FOREIGN KEY (idMpandray) REFERENCES utilisateurs(idUsers),
     FOREIGN key (idObjet_proposer) REFERENCES objets(idObjet),
     FOREIGN key (idObjet_demander) REFERENCES objets(idObjet)
 );
+
+create table refused(
+        idRefused int auto_increment primary key,
+        idProposition int not null,
+        foreign key(idProposition) REFERENCES Proposition(idProposition)
+);
+
+create table historique(
+
+);
+
 
 

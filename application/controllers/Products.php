@@ -73,6 +73,13 @@
 			$this->object->modifyCategory( $id , $category );
 			redirect('welcome/modify?idObject='.$id);
 		}
+
+		function delete(){
+			$id = $this->input->get('idObject');
+			$this->load->model('Object_model' , 'object');
+			$this->object->remove($id);
+			redirect('welcome/profil');
+		}
 		// Inona no azo atao ato afaka verifiena aloha ilay nom
 
 	}

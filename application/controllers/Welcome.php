@@ -34,6 +34,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('Object_model' , 'objets');
 		$data['categories'] = $this->categories->getAllCategories();
 		$data['objets'] = $this->objets->getAllProducts();
+		$data['id'] = $this->session->userdata('idUser');
 		$this->load->view('Objects/Index' , $data);
 
 	}	

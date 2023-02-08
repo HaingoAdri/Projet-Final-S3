@@ -76,7 +76,14 @@
 
           <div class="row mt-4 grid">
             <?php
-              for( $i = 0 ; $i < count($objets) ; $i++ ){  ?>
+              for( $i = 0 ; $i < count($objets) ; $i++ ){  
+
+                  if( $objets[$i]['idUsers'] == $id ){
+                    continue;
+                  }
+
+
+                ?>
                 <div class="col-lg-4 col-6 mb-3 item <?= strtolower($objets[$i]['categorie']['nom'])?>">
                   <a class="text-decoration-none" href="https://prium.github.io/phoenix/v1.0.0/index.html" data-category="<?= strtolower($objets[$i]['categorie']['nom']) ?>">
                   <div class="card mb-2 bg-white card-showcase">
@@ -90,7 +97,7 @@
                     </div>
                     <img class="card-img-bottom" src="<?php echo base_url('assets/images/image/'.$objets[$i]['image']['lienImage']); ?>" alt="Feature" />
                     <div class="card-footer text-center">
-                      <a href="" class="btn btn-success">
+                      <a href="<?= site_url('exchange/?id='.$objets[$i]['idObjet']) ?>" class="btn btn-success">
                         Propose an Exchange
                       </a>
                     </div>

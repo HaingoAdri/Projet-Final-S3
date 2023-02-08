@@ -10,6 +10,7 @@
 			parent::__construct();
 			$this->load->model('Categorie_model' , 'categorie');
 			$this->load->model('Image_model' , 'image');
+			$this->load->model('User_Mod' , 'user');
 		}
 
 		function getAllProducts(){
@@ -33,6 +34,7 @@
 		function getAdditionalData($array){
 			for ($i=0; $i < count($array) ; $i++) { 
 				$array[$i]['image'] = $this->image->getAllImageOf( $array[$i]['idObjet'] )[0];
+				$array[$i]['users'] = $this->image->getAllImageOf( $array[$i]['idObjet'] )[0];
 				$allCategories = $this->categorie->getAllCategoriesOf( $array[$i]['idObjet'] );
 				$array[$i]['categorie'] = $allCategories[0];
 			}
@@ -74,8 +76,19 @@
 			$me = $this->categorie->getAllCategoriesOf($idO)[0];
 			$sql = "update fusionObjets set idCategories = %d where idObjet = %d and idCategories = %d";
 			$sql = sprintf( $sql , $idC , $idO , $me['idCategories'] );
-			// var_dump($me);
 			$this->db->query( $sql );
+		}
+
+		function remove( $id ){
+			$sql1 = "delete from fusionObjets where idObjet = %d";
+			$sql2 = "delete from lien_image where idObjet = %d";
+			$sql3 = "delete from objets where idObjet = %d";
+			$sql1 = sprintf($sql1 , $id);
+			$sql2 = sprintf($sql2 , $id);
+			$sql3 = sprintf($sql3 , $id);
+			$this->db->query($sql1);
+			$this->db->query($sql2);
+			$this->db->query($sql3);
 		}
 
 		function getLastInsered( ){

@@ -1,14 +1,14 @@
 <header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <a class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           Tak-Tak
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="<?= site_url('welcome/acceuil') ?>" class="nav-link px-2 link-secondary">Acceuil</a></li>
           <li><a href="<?= site_url('welcome/profil') ?>" class="nav-link px-2 link-dark">My Profile</a></li>
-          <li><a href="<?= site_url('welcome/propositions') ?>" class="nav-link px-2 link-dark">Propositions</a></li>
+          <li><a href="<?= site_url('exchange/proposition') ?>" class="nav-link px-2 link-dark">Propositions</a></li>
           <li><a href="<?= site_url('welcome/add') ?>" class="nav-link px-2 link-dark">Add Object</a></li>
         </ul>
 
