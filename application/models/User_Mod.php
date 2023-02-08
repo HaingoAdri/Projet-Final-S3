@@ -16,5 +16,13 @@ class User_Mod extends CI_Model{
         $sql = sprintf($sql , $this->db->escape($nom) , $this->db->escape($prenom) , $this->db->escape($email) , $this->db->escape($password));
         $this->db->query($sql);
     }
+
+    function getUser($idUser){
+        $sql = "select * from utilisateurs where idUsers = %d";
+        $sql = sprintf($sql , $idUser);
+        $query = $this->db->query($sql);
+        $array = $query->result_array();
+        return $array[0];
+    }
     
 }

@@ -18,6 +18,12 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct(){
+		parent::__construct();
+		// Tokony teneniko izy eto hoe miverena any rehefa ka tsisy ny zava-drehetra
+	}
+
 	public function index(){	
 		redirect( site_url('user/') );
 	}
@@ -31,6 +37,33 @@ class Welcome extends CI_Controller {
 		$this->load->view('Objects/Index' , $data);
 
 	}	
+
+	function profil(){
+		$this->load->model('Object_model' , 'objets');
+		$this->load->model('User_Mod' , 'user');
+		$data['objets'] = $this->objets->getObjectsOf($this->session->userdata('idUser'));
+		$data['user'] = $this->user->getuser($this->session->userdata('idUser'));
+		// var_dump($data);
+		$this->load->view('users/Profile' , $data);
+	}
+
+	function log_out(){
+		$this->session->sess_destroy();
+		redirect('welcome');	
+	}
+
+	function add(){
+		$this->load->model('Categorie_model' , 'c');
+		$data['categories'] = $this->c->getAllCategories();
+		$this->load->view('Add_Object' , $data);
+	}
+	function modify(){
+		// Alaina daholo ny avy any anaty base
+		$this->load->model('Object_model' , 'o');
+		$id = $this->input->get('idObjet');
+		$ob = $this->o->
+		$this->load->view('ModifyObject');
+	}
 	//cette page accepte une variable url facultative
 	
 }

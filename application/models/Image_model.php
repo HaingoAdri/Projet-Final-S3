@@ -7,7 +7,12 @@
 			$sql = sprintf($sql , $idObject);
 			$query = $this->db->query($sql);
 			$array = $query->result_array();
-			return $array;
+			return (count ($array ) == 0) ? NULL : $array;
+		}
+
+		function insert( $data = array() ){
+			$insert = $this->db->insert_batch('lien_image' , $data);
+			return $insert ? true : false;
 		}
 
 	}
