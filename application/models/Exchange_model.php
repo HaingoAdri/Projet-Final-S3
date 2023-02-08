@@ -21,14 +21,32 @@
 			$this->db->query($sql);
 		}
 
+		function historiser( $idOldOwner , $idObject ){
+			$sql = "insert into historique values (default , %d , %d , now() )";
+			$sql = sprintf($sql , $idOldOwner , $idObject);
+			$this->db->query($sql);
+		}
+
 		function getReceived( $myId ){
 			
-			$sql = "select * from Proposition where idMpandray = %d and idProposition not in (select idProposition from refused) and timeExchange is null";
+			$sql = "select * from Proposition where idMpandray = %d and idProposition not in (select idProposition from refused) and dayname(cast(timeExchange as char)) is NULL";
 			$sql = sprintf($sql , $myId);
+			// var_dump($sql);
 			$query = $this->db->query($sql);
 			$array = $query->result_array();
 			$array = $this->getAdditionalData($array);
 			return $array;
+		}
+
+		function getHistorics( $idObject ){
+			$sql = "select * from historique where idObject = %s";
+			$sql = sprintf($sql , $idObject);
+			$this->load->model('Historics_model' , 'historics');
+			$query = $this->db->query($sql);
+			$array = $query->result_array();
+			$array = $this->historics->getAdditionalData($array);
+			return $array;
+
 		}
 
 		function intervert( $idAutre , $idMe , $idMyObject , $idOther ){
@@ -36,7 +54,8 @@
 			$sql2 = "update objets set idUsers = %d where idObjet = %d";
 			$sql = sprintf($sql , $idAutre , $idMyObject );
 			$sql2 = sprintf($sql2 , $idMe , $idOther );
-
+			$this->historiser( $idAutre , $idOther );
+			$this->historiser( $idMe , $idMyObject );
 			$this->db->query($sql);
 			$this->db->query($sql2);
 
@@ -53,7 +72,7 @@
 
 
 		function getSent( $myId ){
-			$sql = "select * from Proposition where idProposer = %d and idProposition not in (select idProposition from refused) and timeExchange is null";
+			$sql = "select * from Proposition where idProposer = %d and idProposition not in (select idProposition from refused) and dayname(cast(timeExchange as char)) is NULL";
 			$sql = sprintf($sql , $myId);
 			$query = $this->db->query($sql);
 			$array = $query->result_array();
@@ -71,8 +90,10 @@
 			return $array;
 		}
 
+		// inona
+
 		function refuse( $idProposition ){
-			$sql = " insert into refused values (%d) ";
+			$sql = " insert into refused values ('default' , %d) ";
 			$sql = sprintf($sql , $idProposition);
 			$this->db->query($sql);
 		}

@@ -38,11 +38,28 @@
 			$this->load->model('Exchange_model' , 'exchange');
 			$idProposition = $this->input->get('id');
 			$proposition = $this->exchange->getProposition($idProposition);
-			// ananako zao ny proposition iray
-			//donc ananako ny mpandefa sy ny mpandray
 			$this->exchange->intervert( $proposition['idProposer'] , $proposition['idMpandray'] , $proposition['idObjet_demander'] , $proposition['idObjet_proposer'] );
 			$this->exchange->accept($idProposition);
 		}
+
+		function reject(){
+			$this->load->model('Exchange_model' , 'exchange');
+			$idProposition = $this->input->get('id');
+			$this->exchange->refuse($idProposition);
+			redirect(site_url('exchange/proposition'));
+		}
+
+		function self(){
+			$id = $this->input->get('id');
+			$this->load->model('Exchange_model' , 'exchange');
+			$this->load->model('Object_model' , 'object');
+
+			$data['objet'] = $this->object->getObject( $id );
+			$data['historics'] = $this->exchange->getHistorics( $id );
+
+			$this->load->view('Objects/Self' , $data);
+		}
+
 	}
 
 ?>

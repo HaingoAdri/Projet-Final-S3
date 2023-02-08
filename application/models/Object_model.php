@@ -34,7 +34,7 @@
 		function getAdditionalData($array){
 			for ($i=0; $i < count($array) ; $i++) { 
 				$array[$i]['image'] = $this->image->getAllImageOf( $array[$i]['idObjet'] )[0];
-				$array[$i]['users'] = $this->image->getAllImageOf( $array[$i]['idObjet'] )[0];
+				$array[$i]['users'] = $this->user->getUser( $array[$i]['idUsers'] );
 				$allCategories = $this->categorie->getAllCategoriesOf( $array[$i]['idObjet'] );
 				$array[$i]['categorie'] = $allCategories[0];
 			}

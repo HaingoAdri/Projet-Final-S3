@@ -34,18 +34,9 @@
 							for( $i = 0 ; $i < count($sent) ; $i++ ){ ?>
 								<tr>
 									<td> <?= $sent[$i]['receiver']['Nom']." ".$sent[$i]['receiver']['prenom'] ?>  </td>
-									<td><?= $sent[$i]['requested']['nom'] ?></td>
 									<td><?= $sent[$i]['proposed']['nom'] ?></td>
-									<td>
-										<a href="<?= site_url('exchange/accept/?id='.$sent[$i]['idProposition']) ?>" class="btn btn-success">
-											Accept
-										</a>
-									</td>
-									<td>
-										<a href="" class="btn btn-danger">
-											Reject
-										</a>
-									</td>
+									<td><?= $sent[$i]['requested']['nom'] ?></td>
+									
 								</tr>
 							<?php } ?>
 					</tbody>
@@ -67,16 +58,16 @@
 						<?php
 							for( $i = 0 ; $i < count($received) ; $i++ ){ ?>
 								<tr>
-									<td> <?= $received[$i]['requester']['nom']." ".$sent[$i]['receiver']['prenom'] ?>  </td>
-									<td><?= $received[$i]['requested']['nom'] ?></td>
+									<td> <?= $received[$i]['requester']['Nom']." ".$received[$i]['requester']['prenom'] ?>  </td>
 									<td><?= $received[$i]['proposed']['nom'] ?></td>
+									<td><?= $received[$i]['requested']['nom'] ?></td>
 									<td>
-										<a href="" class="btn btn-success">
+										<a href="<?= site_url('exchange/accept/?id='.$received[$i]['idProposition']) ?>" class="btn btn-success">
 											Accept
 										</a>
 									</td>
 									<td>
-										<a href="" class="btn btn-danger">
+										<a href="<?= site_url('exchange/reject/?id='.$received[$i]['idProposition'])?>" class="btn btn-danger">
 											Reject
 										</a>
 									</td>

@@ -100,6 +100,9 @@
                       <a href="<?= site_url('exchange/?id='.$objets[$i]['idObjet']) ?>" class="btn btn-success">
                         Propose an Exchange
                       </a>
+                      <a href="<?= site_url('exchange/self?id='.$objets[$i]['idObjet']) ?>" class="btn btn-primary">
+                        See details
+                      </a>
                     </div>
                   </div>
                 </a>
