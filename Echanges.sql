@@ -7,7 +7,7 @@ Create table utilisateurs(
     Nom VARCHAR(250),
     prenom VARCHAR(250),
     email VARCHAR(250),
-    password VARCHAR (250) unique,
+    username VARCHAR (250) unique,
     isAdmin boolean DEFAULT FALSE
 );
 insert into  utilisateurs values
@@ -44,7 +44,7 @@ create table objets(
     idUsers int not null,
     FOREIGN key (idUsers) REFERENCES utilisateurs(idUsers)
 );
-insert into objets values
+insert into Objets values
         (default,'Hyundai Veloster Turbo','32000000','Neufs','1');
 insert into objets values 
         (default,'Dodge Ram','100000000','Neufs','1');
@@ -58,35 +58,35 @@ insert into objets values
         (default,'BMW X7','100000000','Neufs','2');
 insert into objets values 
         (default,'Isuzu D Max','95000000',' Neufs','3');
-insert into objets values
+insert into Objets values
         (default,'Mp5','25000000',' Arme Mini Porte',1);
-insert into objets values
+insert into Objets values
         (default,'FN P90','26000000','Produit nouveau',1);
-insert into objets values(
+insert into Objets values(
           default,'Uzi','10000000','Mini Mitraillete',1);
-insert into objets values
+insert into Objets values
         (default,'AK-47','150000000','Plus utiliser des Militaires',2);
-insert into objets values(
+insert into Objets values(
           default,'Grenade','200000','Bombe',2);
-insert into objets values(
+insert into Objets values(
          default,'M16','25000000','Mitrailleuse',3);
-insert into objets values(
+insert into Objets values(
           default,'Revolver','130000000','Meilleur que la Pistolet',3);
-insert into objets values(
+insert into Objets values(
           default,'Militairy Knife','1500000','Mortelle',3);
-insert into objets values(
+insert into Objets values(
           default,'Thompson Gun','20000000','Corps a corps',2);
-insert into oBjets values(
+insert into OBjets values(
           default,'dragonov','500000000','Sniper',1);
 insert into objets values
         (default,'Asus E510','3000000','En stock',1);
 insert into objets values 
         (default,'Asus VivoBook E510MA','3200000','Meilleur Produit',1);
-insert into objets values
+insert into Objets values
         (default,'Samsung Galaxy Book Go','3300000','Equipe d une puce ARM',2);
-insert into objets values 
+insert into Objets values 
         (default,'SamsungNotebook Pen','3500000','Le PC Portable se dote d un Stylet',2);
-insert into objets values 
+insert into Objets values 
         (default, 'Acer Aspire','2000000','Full HD',3);
 
 
@@ -150,67 +150,69 @@ create table lien_image(
     FOREIGN KEY(idObjet) REFERENCES objets(idObjet)
 );
 insert into lien_image VALUES
-        (default,1,'HYUNDAI-VELOSTER-01.jpg');
+        (default,1,'http://localhost/P_Final/assets/image/HYUNDAI-VELOSTER-01.jpg');
 
 insert into lien_image VALUES
-        (default,2,'Dodge Ram.jpg');
+        (default,2,'http://localhost/P_Final/assets/image/Dodge Ram.jpg');
 
 insert into lien_image VALUES
-        (default,3,'Toyota Tundra.jpg');
+        (default,3,'http://localhost/P_Final/assets/image/Toyota Tundra.jpg');
 
 insert into lien_image VALUES
-        (default,4,'Golf8_1.jpg');
+        (default,4,'http://localhost/P_Final/assets/image/Golf8_1.jpg');
 
 insert into lien_image VALUES
-        (default,5,'CCXR Trevita.jpg');
+        (default,5,'http://localhost/P_Final/assets/image/CCXR Trevita.jpg');
 
 insert into lien_image VALUES
-        (default,6,'BMW X71.jpg');
+        (default,6,'http://localhost/P_Final/assets/image/BMW X71.jpg');
 
 insert into lien_image VALUES
-        (default,7,'isuzu-d-max-1.jpg');
+        (default,7,'http://localhost/P_Final/assets/image/isuzu-d-max-1.jpg');
 
 insert into lien_image VALUES
-        (default,8,'Mp5.jpg');
+        (default,8,'http://localhost/P_Final/assets/image/Mp5.jpg');
 
 insert into lien_image VALUES
-        (default,9,'P90-.png');
+        (default,9,'http://localhost/P_Final/assets/image/P90-.png');
 
 insert into lien_image VALUES
-        (default,10,'uzi1.jpg');
+        (default,10,'http://localhost/P_Final/assets/image/uzi1.jpg');
 
 insert into lien_image VALUES
-        (default,11,'AK-47.jpg');
+        (default,11,'http://localhost/P_Final/assets/image/AK-47.jpg');
 
 insert into lien_image VALUES
-        (default,12,'Grenade.jpg');
+        (default,12,'http://localhost/P_Final/assets/image/Grenade.jpg');
 insert into lien_image VALUES
-        (default,13,'M16-.jpg');
+        (default,13,'http://localhost/P_Final/assets/image/M16-.jpg');
 
 insert into lien_image VALUES
-        (default,14,'Revolver1.jpg');
+        (default,14,'http://localhost/P_Final/assets/image/Revolver1.jpg');
 
 insert into lien_image VALUES
-        (default,15,'Kniffe1.jpg');
+        (default,15,'http://localhost/P_Final/assets/image/Kniffe1.jpg');
 
 insert into lien_image VALUES
-        (default,16,'Thompson.jpg');
+        (default,16,'http://localhost/P_Final/assets/image/Thompson.jpg');
 
 insert into lien_image VALUES
-        (default,17,'dragunov1.png');
+        (default,17,'http://localhost/P_Final/assets/image/dragunov1.png');
 
 insert into lien_image VALUES
-        (default,18,'Asus E510.jpg');
+        (default,18,'http://localhost/P_Final/assets/image/Asus E510.jpg');
 
 insert into lien_image VALUES
-        (default,19,'asus1.jpg');
+        (default,19,'http://localhost/P_Final/assets/image/asus1.jpg');
 
 insert into lien_image VALUES
-        (default,20,'GalaxSamsung.jpg');
+        (default,20,'http://localhost/P_Final/assets/image/GalaxSamsung.jpg');
 
 insert into lien_image VALUES
-        (default,21,'Samsung1.jpg');
+        (default,21,'http://localhost/P_Final/assets/image/Samsung1.jpg');
 
+insert into lien_image VALUES
+        (default,22,'http://localhost/P_Final/assets/image/acer_aspire_7.jpg');
 
 create table Proposition(
     idProposition int auto_increment PRIMARY KEY not null,
@@ -218,36 +220,18 @@ create table Proposition(
     idMpandray int not null,
     idObjet_proposer int not null,
     idObjet_demander int not null,
-    timeExchange datetime default null,
 
     FOREIGN KEY (idProposer) REFERENCES utilisateurs(idUsers),
     FOREIGN KEY (idMpandray) REFERENCES utilisateurs(idUsers),
     FOREIGN key (idObjet_proposer) REFERENCES objets(idObjet),
-    FOREIGN key (idObjet_demander) REFERENCES objets(idObjet)
+    FOREIGN key (idObjet_demander) REFERENCES Objets(idObjet)
 );
-
 CREATE TABLE echange(
         idEchange int auto_increment PRIMARY KEY,
         idUsers int not null,
         idObjets int not null,
         FOREIGN KEY (idUsers) REFERENCES utilisateurs(idUsers),
-        FOREIGN key(idObjets) REFERENCES objets(idObjet)
+        FOREIGN key(idObjets) REFERENCES Objets(idObjets)
 );
-
-create table refused(
-        idRefused int auto_increment primary key,
-        idProposition int not null,
-        foreign key(idProposition) REFERENCES Proposition(idProposition)
-);
-
-create table historique(
-        idHistorique int auto_increment primary key,
-        idOld int not null,
-        idObject int not null,
-        finAppartenance datetime not null,
-        FOREIGN key(idOld) REFERENCES utilisateurs(idUsers),
-        FOREIGN key (idObject) REFERENCES objets(idObjet)
-);
-
 
 
