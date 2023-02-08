@@ -47,33 +47,44 @@
 
 
     <!-- Header -->
-    <header id="header" class="header text-center">
-        <div class="header-content">
-            <nav class="navbar text-center navbar-light bg-light">
-                <div class="container">
-                    <a class=" navbar-link text-center" href="#">
-                        <h1>TAKALO-TAKALO</h1>
-                    </a>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-container">
-                            
-                            <p class="p-heading p-large">Change product with other user and use relationship</p>
-                            
+    <?php $this->load->view('Utilities/adminheader'); ?>
+    <section class="py-0">
+        <!-- Atao misy oue ajouter ilay izy -->
+        <div class="container">
+            <h2 class="text-center text-decoration-underline">
+                Lists of Categories
+                
+            </h2>
+            <div class="row mb-4">
+            <?php for( $i = 0 ; $i < count($categories) ; $i++ ){ ?>
+                    <div class="col-lg-6 col-sm-12 p-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 py-2 col-sm-3 left">
+                                        <?= $categories[$i]['nom'] ?>  : 
+                                        <span class="badge bg-success">
+                                            Total of objects : <?= $categories[$i]['count'] ?>
+                                        </span>
+                                        
+                                    </div>
+                                    <div class="col-lg-5 offset-1 right">
+                                        <a href="<?= site_url('admin/modify?idCategory='.$categories[$i]['idCategories']) ?>" class="btn btn-primary">
+                                            Modify
+                                        </a>
+                                        <!-- <a href="" class="btn btn-danger">
+                                            Remove
+                                        </a> -->
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
-
-
-    
-    
+                    </div>
+            <?php } ?>
+                </div>
+        </div>
+    </section>
 
 
     	
